@@ -40,9 +40,13 @@ export const AddUser = () => {
 
     return (
         <Fragment>
-            <h1 className='h3 mb-4 text-gray-800'>Add new user</h1>
-            <div className='card'>
-                <div className='card-header'>User information</div>
+            <h1 className='h3 mb-2 text-gray-800'>Add new user</h1>
+            <div className='card shadow mb-4'>
+                <div className='card-header py-3'>
+                    <h6 className='m-0 font-weight-bold text-primary'>
+                        User information
+                    </h6>
+                </div>
                 <div className='card-body'>
                     <div className="row">
                         <div className="col-sm-6">
