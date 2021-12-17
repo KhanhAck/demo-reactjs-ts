@@ -1,15 +1,28 @@
-import { RouteProps } from 'react-router-dom';
-import { Navigate } from 'react-router';
-import { useSelector } from 'react-redux';
+import { Route, RouteProps } from 'react-router-dom';
 
 import { AccountState } from '../store/account/types';
 import { AppState } from '../store';
 import { Login } from '../pages/Account/Login';
+import React from 'react';
+import { Redirect } from 'react-router';
+import { useSelector } from 'react-redux';
 
 export const AccountRoute = ({
-    children
-}: RouteProps): any => {
+    children,
+    ...rest
+}: RouteProps): JSX.Element => {
     const account: AccountState = useSelector((state: AppState) => state.account);
 
-    return account.token ? <Navigate to="/admin/home" /> : <Login />;
+    return (
+        <Route
+            {...rest}
+            render={() =>
+                account.token ? (
+                    <Redirect to={{ pathname: '/' }} />
+                ) : (
+                    <Login />
+                )
+            }
+        ></Route>
+    );
 };

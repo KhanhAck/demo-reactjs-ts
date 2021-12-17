@@ -12,11 +12,10 @@ export const LOAD_CURRENT_LOGIN_USER_FAILURE =
 export const LOG_OUT = 'LOG_OUT';
 
 export interface AuthenticatedUser {
-    _id: string;
-    first_name: string;
-    last_name: string;
+    id: string;
+    name: string;
     email: string;
-    avatar: string;
+    phone: string;
 }
 
 interface LoginRequest {
